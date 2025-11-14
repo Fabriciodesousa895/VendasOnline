@@ -125,13 +125,13 @@
 <body>
 
     <!-- BOTÃO HAMBÚRGUER -->
-    <button class="btn btn-dark d-md-none" id="btnMenu" onclick="toggleMenu()">☰</button>
+    <button class="btn btn-dark" style="height: 45px;width: 45px;" id="btnMenu" onclick="toggleMenu()"> ☰ </button>
 
     <!-- MENU LATERAL -->
     <div id="sidebar">
         <h2>Horus</h2>
         <a href="#" onclick="openPage('dashboard')">📊 Dashboard</a>
-        <a href="#" onclick="openPage('vendas')">🛒 Vendas</a>
+        <a href="#" onclick="openPage('venda')">🛒 Vendas</a>
         <a href="#" onclick="openPage('produtos')">📦 Produtos</a>
         <a href="#" onclick="openPage('parceiros')">👥 Parceiros</a>
         <a href="#" onclick="openPage('financeiro')">💰 Financeiro</a>
@@ -142,11 +142,6 @@
 
     <!-- ÁREA PRINCIPAL -->
     <div id="content">
-
-        <!-- DASHBOARD -->
-
-
-
 
         <!-- PRODUTOS -->
         <div id="produtos" class="page" style="display:none;">
@@ -190,8 +185,6 @@
                     </div>
                 </div>
 
-                <!-- Tabela exemplo -->
-                <div class="card">
                     <!-- TABELA — aparece apenas em md, lg e xl -->
                     <div class="table-responsive d-none d-md-block" id="TabelaProdutos">
                         <table class="table align-middle">
@@ -234,7 +227,7 @@
                     </div>
 
                 </div>
-            </div>
+            
 
             <!-- FORMULÁRIO DE PRODUTO (inicialmente escondido) -->
             <div id="formProduto" class="card shadow-sm p-4" style="display:none;">
@@ -346,8 +339,6 @@
                     </div>
                 </div>
 
-                <!-- Tabela exemplo -->
-                <div class="card">
                     <!-- TABELA — aparece apenas em md, lg e xl -->
                     <div class="table-responsive d-none d-md-block" id="TabelaParceiros">
                         <table class="table align-middle">
@@ -388,8 +379,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
             </div>
             <div>
             </div>
@@ -485,143 +474,262 @@
                 </div>
             </div>
 
-
         </div>
 
-        <!-- FINANCEIRO -->
-        <div id="financeiro" class="page" style="display:none;">
+         <div id="financeiro" class="page" style="display:none;">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>💰 Financeiro</h3>
                 <div><button class="btn btn-success" onclick="mostrarFormularioFinanceiro()">➕ Adicionar
                         Movimento</button></div>
             </div>
 
-            <!-- Lista financeira (exemplo) -->
+            <!-- LISTA DE PRODUTOS (visível por padrão) -->
             <div id="listaFinanceiro">
+                <!-- Filtros / ações (exemplo parecido com sua imagem) -->
                 <div class="card mb-3 p-3">
+                    <div class="d-flex gap-2 mb-3 flex-wrap">
+                        <button class="btn btn-secondary ">🔍 Filtro</button>
+                        <button class="btn btn-primary">⬇ Export</button>
+                        <button class="btn btn-danger">🗑 Excluir</button>
+                    </div>
+
                     <div class="row g-2">
-                        <div class="col-md-3"><select class="form-select">
-                                <option>Tipo</option>
-                                <option>Receber</option>
-                                <option>Pagar</option>
-                            </select></div>
-                        <div class="col-md-3"><select class="form-select">
-                                <option>Status</option>
-                                <option>Pendente</option>
-                                <option>Pago</option>
-                            </select></div>
-                        <div class="col-md-2"><input type="date" class="form-control"></div>
-                        <div class="col-md-2"><input type="date" class="form-control"></div>
-                        <div class="col-md-2"><input type="date" class="form-control"></div>
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option>Todos Tipos</option>
+                                <option>Produto</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option>Todos Status</option>
+                                <option>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" placeholder="Cadastro Início">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" placeholder="Cadastro Fim">
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="table-responsive">
+                    <!-- TABELA — aparece apenas em md, lg e xl -->
+                    <div class="table-responsive d-none d-md-block" id="TabelaFinanceiro">
                         <table class="table align-middle">
                             <thead class="table-light">
                                 <tr>
-                                    <th></th>
+                                    <th style="width:40px;"><input type="checkbox"></th>
                                     <th>Código</th>
-                                    <th>Documento</th>
-                                    <th>Parceiro</th>
-                                    <th>Valor</th>
+                                    <th>Nome</th>
+                                    <th>Estoque</th>
+                                    <th>Preço</th>
                                     <th>Tipo</th>
-                                    <th>Vencimento</th>
-                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><input type="checkbox"></td>
                                     <td>001</td>
-                                    <td>NF-235</td>
-                                    <td>João Silva</td>
-                                    <td>R$ 1.250,00</td>
-                                    <td>Receber</td>
-                                    <td>10/11/2025</td>
-                                    <td>Pendente</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>002</td>
-                                    <td>NF-102</td>
-                                    <td>Maria Lima</td>
-                                    <td>R$ 540,00</td>
-                                    <td>Pagar</td>
-                                    <td>05/11/2025</td>
-                                    <td>Pago</td>
+                                    <td>Produto A</td>
+                                    <td>120</td>
+                                    <td>R$ 45,00</td>
+                                    <td>Produto</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
 
-            <!-- Formulário financeiro (mesmos campos do parceiro conforme solicitado) -->
+                    <!-- CARD — aparece apenas em telas pequenas -->
+                    <div class="d-block d-md-none">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Produto A</h5>
+
+                                <p class="mb-1"><strong>Código:</strong> 001</p>
+                                <p class="mb-1"><strong>Estoque:</strong> 120</p>
+                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            
+
+            <!-- FORMULÁRIO DE PRODUTO (inicialmente escondido) -->
             <div id="formFinanceiro" class="card shadow-sm p-4" style="display:none;">
-                <h4 class="mb-3">Novo Movimento</h4>
-                <form id="financeiroForm" class="row g-3">
-                    <!-- Usamos o mesmo formulário padrão (opção A) -->
-                    <div class="col-md-4">
-                        <label class="form-label">Nome</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">Razão social</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">CPF / CNPJ</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">RG / INSCRIÇÃO ESTADUAL</label><input type="text"
-                            class="form-control">
-                        <label class="form-label mt-1">Tipo de cadastro</label><input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">CEP</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">UF</label>
-                        <select class="form-select">
-                            <option selected>Selecione</option>
-                            <option>AC</option><!-- ... -->
-                        </select>
-                        <label class="form-label mt-1">Cidade</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">Logradouro</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">Complemento</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">Bairro</label><input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Status</label><input type="text" class="form-control" value="Ativo">
-                        <label class="form-label mt-1">Email</label><input type="email" class="form-control">
-                        <label class="form-label mt-1">Email</label><input type="email" class="form-control">
-                        <label class="form-label mt-1">Telefone</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">Telefone</label><input type="text" class="form-control">
-                        <label class="form-label mt-1">Observação</label><textarea class="form-control"
-                            rows="3"></textarea>
-                    </div>
-                    <div class="col-md-3 mt-4">
-                        <label class="form-label">Data cadastro</label><input type="text" class="form-control" disabled>
-                        <label class="form-label mt-1">Usuário cadastro</label><input type="text" class="form-control"
-                            disabled>
-                        <label class="form-label mt-1">Data alteração</label><input type="text" class="form-control"
-                            disabled>
-                        <label class="form-label mt-1">Usuário alteração</label><input type="text" class="form-control"
-                            disabled>
+                <h4 class="mb-3">Cadastro de Produto</h4>
+                <form id="produtoForm">
+                    <div class="row g-3">
+                        <!-- Coluna 1 -->
+                        <div class="col-lg-4 col-md-6">
+                            <label class="form-label">Nome</label>
+                            <input type="text" id="p_nome" class="form-control" placeholder="Nome">
+                        </div>
+
+                        <!-- Coluna 2 -->
+                        <div class="col-lg-4 col-md-6">
+                            <label class="form-label">Status</label>
+                            <select id="p_status" class="form-select">
+                                <option selected>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+
+                        <!-- Coluna 3 (upload) -->
+                        <div class="col-lg-4 col-md-12 d-flex flex-column align-items-stretch">
+                            <label class="form-label">Imagem do produto</label>
+                            </div>
+                            <div class="form-actions gap-2">
+                                <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    onclick="fecharFormularioFinanceiro()">Cancelar</button>
+                            </div>
+                        </div>
+
                     </div>
                 </form>
-
-                <div class="mt-1 d-flex gap-2">
-                    <button class="btn btn-secondary" onclick="fecharFormularioFinanceiro()">Cancelar</button>
-                    <button class="btn btn-primary" onclick="salvarFinanceiro()">Salvar</button>
-                </div>
+         </div>
+   <div id="venda" class="page" style="display:none;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3>🛒 Vendas</h3>
+                <div><button class="btn btn-success" onclick="mostrarFormularioVenda()">➕ Adicionar
+                        Movimento</button></div>
             </div>
-        </div>
+
+            <!-- LISTA DE VENDAS (visível por padrão) -->
+            <div id="listaVenda">
+                <!-- Filtros / ações (exemplo parecido com sua imagem) -->
+                <div class="card mb-3 p-3">
+                    <div class="d-flex gap-2 mb-3 flex-wrap">
+                        <button class="btn btn-secondary ">🔍 Filtro</button>
+                        <button class="btn btn-primary">⬇ Export</button>
+                        <button class="btn btn-danger">🗑 Excluir</button>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option>Todos Tipos</option>
+                                <option>Produto</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option>Todos Status</option>
+                                <option>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" placeholder="Cadastro Início">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" placeholder="Cadastro Fim">
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- TABELA — aparece apenas em md, lg e xl -->
+                    <div class="table-responsive d-none d-md-block" id="TabelaVenda">
+                        <table class="table align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width:40px;"><input type="checkbox"></th>
+                                    <th>Código</th>
+                                    <th>Nome</th>
+                                    <th>Estoque</th>
+                                    <th>Preço</th>
+                                    <th>Tipo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>001</td>
+                                    <td>Produto A</td>
+                                    <td>120</td>
+                                    <td>R$ 45,00</td>
+                                    <td>Produto</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CARD — aparece apenas em telas pequenas -->
+                    <div class="d-block d-md-none">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Venda para cliente A</h5>
+
+                                <p class="mb-1"><strong>Código:</strong> 001</p>
+                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            
+
+            <!-- FORMULÁRIO DE VENDAS (inicialmente escondido) -->
+            <div id="formVenda" class="card shadow-sm p-4" style="display:none;">
+                <h4 class="mb-3">Cadastro de Produto</h4>
+                <form id="vendaForm">
+                    <div class="row g-3">
+                        <!-- Coluna 1 -->
+                        <div class="col-lg-4 col-md-6">
+                            <label class="form-label">Nome</label>
+                            <input type="text" id="p_nome" class="form-control" placeholder="Nome">
+                        </div>
+
+                        <!-- Coluna 2 -->
+                        <div class="col-lg-4 col-md-6">
+                            <label class="form-label">Status</label>
+                            <select id="p_status" class="form-select">
+                                <option selected>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+
+                        <!-- Coluna 3 (upload) -->
+                        <div class="col-lg-4 col-md-12 d-flex flex-column align-items-stretch">
+                            <label class="form-label">Imagem do produto</label>
+                            </div>
+                            <div class="form-actions gap-2">
+                                <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    onclick="fecharFormularioVenda()">Cancelar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+
+            
+    
+        
 
         <!-- CONFIGURAÇÕES -->
         <div id="config" class="page" style="display:none;">
             <h3>⚙️ Configurações</h3>
             <p>Configurações gerais...</p>
         </div>
-
+   
         <!-- RELATÓRIOS -->
         <div id="relatorios" class="page" style="display:none;">
             <h3>📄 Relatórios</h3>
             <p>Selecione relatórios para gerar...</p>
         </div>
 
+    </div>
         <!-- VENDAS -->
         <div id="vendas" class="page" style="display:none;">
             <h3>🛒 Vendas</h3>
@@ -686,6 +794,13 @@
             document.getElementById('formProduto').style.display = 'none';
             document.getElementById('listaProdutos').style.display = 'block';
         }
+        // ========== Vendas: mostrar/ocultar formulário ==========
+        function mostrarFormularioVenda() {
+            document.getElementById('listaVenda').style.display = 'none';
+            document.getElementById('formVenda').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    
         // ========== Parceiros: mostrar/ocultar formulário ==========
         function mostrarFormularioParceiro() {
             document.getElementById('listaparceiros').style.display = 'none';
@@ -695,6 +810,10 @@
         function fecharFormularioParceiro() {
             document.getElementById('formParceiro').style.display = 'none';
             document.getElementById('listaParceiros').style.display = 'block';
+        }
+        function fecharFormularioVenda() {
+            document.getElementById('formVenda').style.display = 'none';
+            document.getElementById('listaVenda').style.display = 'block';
         }
 
         // Exemplo simples de salvar (substituir por chamada real)
