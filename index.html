@@ -192,7 +192,8 @@
 
                 <!-- Tabela exemplo -->
                 <div class="card">
-                    <div class="table-responsive">
+                    <!-- TABELA — aparece apenas em md, lg e xl -->
+                    <div class="table-responsive d-none d-md-block" id="TabelaProdutos">
                         <table class="table align-middle">
                             <thead class="table-light">
                                 <tr>
@@ -212,19 +213,26 @@
                                     <td>120</td>
                                     <td>R$ 45,00</td>
                                     <td>Produto</td>
-
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>002</td>
-                                    <td>Produto B</td>
-                                    <td>60</td>
-                                    <td>R$ 120,00</td>
-                                    <td>Produto</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- CARD — aparece apenas em telas pequenas -->
+                    <div class="d-block d-md-none">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Produto A</h5>
+
+                                <p class="mb-1"><strong>Código:</strong> 001</p>
+                                <p class="mb-1"><strong>Estoque:</strong> 120</p>
+                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -289,7 +297,8 @@
 
                             <div class="form-actions gap-2">
                                 <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
-                                <button type="button" class="btn btn-secondary"  onclick="fecharFormularioProduto()">Cancelar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    onclick="fecharFormularioProduto()">Cancelar</button>
                             </div>
                         </div>
 
@@ -339,14 +348,17 @@
 
                 <!-- Tabela exemplo -->
                 <div class="card">
-                    <div class="table-responsive">
+                    <!-- TABELA — aparece apenas em md, lg e xl -->
+                    <div class="table-responsive d-none d-md-block" id="TabelaParceiros">
                         <table class="table align-middle">
                             <thead class="table-light">
                                 <tr>
                                     <th style="width:40px;"><input type="checkbox"></th>
                                     <th>Código</th>
                                     <th>Nome</th>
-                                    <th>cCpf / Cnpj</th>
+                                    <th>Estoque</th>
+                                    <th>Preço</th>
+                                    <th>Tipo</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -355,11 +367,28 @@
                                     <td>001</td>
                                     <td>Produto A</td>
                                     <td>120</td>
+                                    <td>R$ 45,00</td>
+                                    <td>Produto</td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- CARD — aparece apenas em telas pequenas -->
+                    <div class="d-block d-md-none">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Cliente A</h5>
+
+                                <p class="mb-1"><strong>Código:</strong> 001</p>
+                                <p class="mb-1"><strong>Estoque:</strong> 120</p>
+                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div>
@@ -451,7 +480,8 @@
 
                 <div class="form-actions gap-2">
                     <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
-                    <button type="button" class="btn btn-secondary"  onclick="fecharFormularioParceiro()">Cancelar</button>
+                    <button type="button" class="btn btn-secondary"
+                        onclick="fecharFormularioParceiro()">Cancelar</button>
                 </div>
             </div>
 
