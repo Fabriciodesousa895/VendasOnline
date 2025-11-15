@@ -125,7 +125,7 @@
 <body>
 
     <!-- BOTÃO HAMBÚRGUER -->
-    <button class="btn btn-dark" style="height: 45px;width: 40px;" id="btnMenu" onclick="toggleMenu()"> ☰ </button>
+    <button class="btn btn-dark" style="height: 40px;width: 40px;" id="btnMenu" onclick="toggleMenu()"> ☰ </button>
 
     <!-- MENU LATERAL -->
     <div id="sidebar">
@@ -163,71 +163,57 @@
                     </div>
 
                     <div class="row g-2">
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option>Todos Tipos</option>
-                                <option>Produto</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option>Todos Status</option>
-                                <option>Ativo</option>
-                                <option>Inativo</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Cadastro Início">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Cadastro Fim">
+                        <div class="col-md-4">
+                            <label for="PesquisaProduto">Pesquise por um termo</label>
+                            <input type="text" class="form-control" id="PesquisaProduto"
+                                placeholder="Pesquise por um termo do seu produto">
                         </div>
                     </div>
                 </div>
 
-                    <!-- TABELA — aparece apenas em md, lg e xl -->
-                    <div class="table-responsive d-none d-md-block" id="TabelaProdutos">
-                        <table class="table align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th style="width:40px;"><input type="checkbox"></th>
-                                    <th>Código</th>
-                                    <th>Nome</th>
-                                    <th>Estoque</th>
-                                    <th>Preço</th>
-                                    <th>Tipo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>001</td>
-                                    <td>Produto A</td>
-                                    <td>120</td>
-                                    <td>R$ 45,00</td>
-                                    <td>Produto</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <!-- TABELA — aparece apenas em md, lg e xl -->
+                <div class="table-responsive d-none d-md-block" id="TabelaProdutos">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:40px;"><input type="checkbox"></th>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Estoque</th>
+                                <th>Preço</th>
+                                <th>Tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>001</td>
+                                <td>Produto A</td>
+                                <td>120</td>
+                                <td>R$ 45,00</td>
+                                <td>Produto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <!-- CARD — aparece apenas em telas pequenas -->
-                    <div class="d-block d-md-none">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto A</h5>
+                <!-- CARD — aparece apenas em telas pequenas -->
+                <div class="d-block d-md-none">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Produto A</h5>
 
-                                <p class="mb-1"><strong>Código:</strong> 001</p>
-                                <p class="mb-1"><strong>Estoque:</strong> 120</p>
-                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
-                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+                            <p class="mb-1"><strong>Código:</strong> 001</p>
+                            <p class="mb-1"><strong>Estoque:</strong> 120</p>
+                            <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                            <p class="mb-2"><strong>Tipo:</strong> Produto</p>
 
-                            </div>
                         </div>
                     </div>
-
                 </div>
-            
+
+            </div>
+
 
             <!-- FORMULÁRIO DE PRODUTO (inicialmente escondido) -->
             <div id="formProduto" class="card shadow-sm p-4" style="display:none;">
@@ -259,23 +245,23 @@
                             </select>
 
                             <label class="form-label mt-1">Unidade</label>
-                                  <select name="" id="Unidade" class="form-control">
-                                    <option value="UN">Unidade</option>
-                                    <option value="m">Metro (m)</option>
-                                    <option value="cm">Centímetro (cm)</option>
-                                    <option value="mm">Milímetro (mm)</option>
-                                    <option value="kg">Quilograma (kg)</option>
-                                    <option value="g">Grama (g)</option>
-                                    <option value="L">Litro (L)</option>
-                                    <option value="mL">Mililitro (mL)</option>
-                                    <option value="m²">Metro Quadrado (m²)</option>
-                                    <option value="cm²">Centímetro Quadrado (cm²)</option>
-                                    <option value="pc">Peça (pc)</option>
-                                    <option value="cx">Caixa (cx)</option>
-                                    <option value="fd">Fardo (fd)</option>
-                                    <option value="sc">Saco (sc)</option>
-                                    <option value="mc">Maço (mc)</option>
-                                </select>
+                            <select name="" id="Unidade" class="form-control">
+                                <option value="UN">Unidade</option>
+                                <option value="m">Metro (m)</option>
+                                <option value="cm">Centímetro (cm)</option>
+                                <option value="mm">Milímetro (mm)</option>
+                                <option value="kg">Quilograma (kg)</option>
+                                <option value="g">Grama (g)</option>
+                                <option value="L">Litro (L)</option>
+                                <option value="mL">Mililitro (mL)</option>
+                                <option value="m²">Metro Quadrado (m²)</option>
+                                <option value="cm²">Centímetro Quadrado (cm²)</option>
+                                <option value="pc">Peça (pc)</option>
+                                <option value="cx">Caixa (cx)</option>
+                                <option value="fd">Fardo (fd)</option>
+                                <option value="sc">Saco (sc)</option>
+                                <option value="mc">Maço (mc)</option>
+                            </select>
                             <label class="form-label mt-1">Código de barras 1</label>
                             <input type="text" id="CodigoBarra1" class="form-control" placeholder="Codigo de barras 1">
 
@@ -283,7 +269,7 @@
                             <input type="text" id="CodigoBarra2" class="form-control" placeholder="Codigo de barras 2">
 
                             <label class="form-label mt-1">Código de barras 3</label>
-                            <input type="text" id="CodigoBarra3" class="form-control" placeholder="Codigo de barras 3">
+                            <input type="text" id="CodigoBarra13" class="form-control" placeholder="Codigo de barras 3">
                         </div>
 
                         <!-- Coluna 3 (upload) -->
@@ -329,71 +315,102 @@
                         <button class="btn btn-secondary">🔍 Filtro</button>
                         <button class="btn btn-primary">⬇ Export</button>
                         <button class="btn btn-danger">🗑 Excluir</button>
+                        <button id="configColparceiros" class="btn btn-primary d-none d-md-block">
+                            Configurar colunas
+                        </button>
+
+
                     </div>
 
                     <div class="row g-2">
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option>Todos Tipos</option>
-                                <option>Produto</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select">
-                                <option>Todos Status</option>
-                                <option>Ativo</option>
-                                <option>Inativo</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Cadastro Início">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Cadastro Fim">
+                        <div class="col-md-4">
+                            <label for="PesquisaParceiro">Pesquise por um termo</label>
+                            <input type="text" class="form-control" id="PesquisaParceiro"
+                                placeholder="Pesquise por um termo do seu parceiro">
                         </div>
                     </div>
                 </div>
 
-                    <!-- TABELA — aparece apenas em md, lg e xl -->
-                    <div class="table-responsive d-none d-md-block" id="TabelaParceiros">
-                        <table class="table align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th style="width:40px;"><input type="checkbox"></th>
-                                    <th>Código</th>
-                                    <th>Nome</th>
-                                    <th>Estoque</th>
-                                    <th>Preço</th>
-                                    <th>Tipo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>001</td>
-                                    <td>Produto A</td>
-                                    <td>120</td>
-                                    <td>R$ 45,00</td>
-                                    <td>Produto</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <!-- Modal para configurar coluans dos parceiros -->
+                <div class="modal fade" id="modalConfigColunas" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Selecionar colunas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
 
-                    <!-- CARD — aparece apenas em telas pequenas -->
-                    <div class="d-block d-md-none">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Cliente A</h5>
+                            <div class="modal-body">
+                                <!-- Aqui os checkboxes das colunas -->
+                                <div id="listaColunas"></div>
+                            </div>
 
-                                <p class="mb-1"><strong>Código:</strong> 001</p>
-                                <p class="mb-1"><strong>Estoque:</strong> 120</p>
-                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
-                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
-
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button class="btn btn-primary" id="salvarColunas">Salvar</button>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- TABELA DE PARCEIROS— aparece apenas em md, lg e xl -->
+                <div class="table-responsive d-none d-md-block" id="TabelaParceiros">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:30px;"><input type="checkbox"></th>
+                                <th>Código</th>
+                                <th>Razão social</th>
+                                <th>Fantasia</th>
+                                <th>CPF/CNPJ</th>
+                                <th>Inscrição / RG</th>
+                                <th>UF</th>
+                                <th>Cidade</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Total compra</th>
+                                <th>Média compra</th>
+                                <th>Ultima compra</th>
+                                <th>Primeira compra</th>
+                                <th>Dt. cadastro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>001</td>
+                                <td>Produto A</td>
+                                <td>120</td>
+                                <td>R$ 45,00</td>
+                                <td>TETST</td>
+                                <td>ProFEWFSDSDFSduto</td>
+                                <td>ProFEWFSDSDFSduto</td>
+                                <td>ProdDSFDSFuto</td>
+                                <td>ProFSDFSDFFDFSDFSduto</td>
+                                <td>FDWFD</td>
+                                <td>ProdFDFuto</td>
+                                <td>ProdFDFuFFFFFto</td>
+                                <td>ProdFDFuto</td>
+                                <td>ProdFDFuFFFWDto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- CARD — aparece apenas em telas pequenas -->
+                <div class="d-block d-md-none">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Cliente A</h5>
+
+                            <p class="mb-1"><strong>Código:</strong> 001</p>
+                            <p class="mb-1"><strong>Estoque:</strong> 120</p>
+                            <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                            <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
             </div>
@@ -410,7 +427,12 @@
                         <label class="form-label mt-1">RG / INSCRIÇÃO ESTADUAL</label>
                         <input type="text" class="form-control" placeholder="RG / IE">
                         <label class="form-label mt-1">Tipo de cadastro</label>
-                        <input type="text" class="form-control" placeholder="Cliente">
+                        <select name="TIPO_CADASTRO" class="form-control TddCam">
+                            <option value="C">Cliente</option>
+                            <option value="F">Fornecedor</option>
+                            <option value="CF">Cliente / Fornecedor</option>
+                            <option value="R">Representante</option>
+                        </select>
                         <label class="form-label mt-1">Email</label>
                         <input type="email" class="form-control" placeholder="exemplo@email">
                         <label class="form-label mt-1">Email</label>
@@ -491,7 +513,7 @@
 
         </div>
 
-         <div id="financeiro" class="page" style="display:none;">
+        <div id="financeiro" class="page" style="display:none;">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>💰 Financeiro</h3>
                 <div><button class="btn btn-success" onclick="mostrarFormularioFinanceiro()">➕ Adicionar
@@ -510,75 +532,94 @@
 
                     <div class="row g-2">
                         <div class="col-md-3">
+                            <label for="Pesquisaparceiro">Pesquise por um termo</label>
+                            <input type="text" placeholder="Pesquise por um termo" class="form-control">
+
+                            <label for="Tipo">Tipo</label>
                             <select class="form-select">
                                 <option>Todos Tipos</option>
-                                <option>Produto</option>
+                                <option>Receber</option>
+                                <option>Pagar</option>
                             </select>
+
                         </div>
                         <div class="col-md-3">
+                            <label for="">Status</label>
                             <select class="form-select">
                                 <option>Todos Status</option>
                                 <option>Ativo</option>
                                 <option>Inativo</option>
                             </select>
+                            <label for="TipoParceiro">Tipo de parceiro</label>
+                            <select name="TIPO_CADASTRO" class="form-control TddCam">
+                                <option value="C">Cliente</option>
+                                <option value="F">Fornecedor</option>
+                                <option value="CF">Cliente / Fornecedor</option>
+                                <option value="R">Representante</option>
+                            </select>
                         </div>
                         <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Cadastro Início">
+                            <label>Cadastro Início</label>
+                            <input type="date" class="form-control form-control-sm">
+                            <label>Cadastro Fim</label>
+                            <input type="date" class="form-control form-control-sm">
                         </div>
                         <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Cadastro Fim">
+                            <label>Vencimento Início</label>
+                            <input type="date" class="form-control form-control-sm">
+                            <label>Vencimento Fim</label>
+                            <input type="date" class="form-control form-control-sm">
                         </div>
                     </div>
                 </div>
 
-                    <!-- TABELA — aparece apenas em md, lg e xl -->
-                    <div class="table-responsive d-none d-md-block" id="TabelaFinanceiro">
-                        <table class="table align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th style="width:40px;"><input type="checkbox"></th>
-                                    <th>Código</th>
-                                    <th>Nome</th>
-                                    <th>Estoque</th>
-                                    <th>Preço</th>
-                                    <th>Tipo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>001</td>
-                                    <td>Produto A</td>
-                                    <td>120</td>
-                                    <td>R$ 45,00</td>
-                                    <td>Produto</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <!-- TABELA — aparece apenas em md, lg e xl -->
+                <div class="table-responsive d-none d-md-block" id="TabelaFinanceiro">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:40px;"><input type="checkbox"></th>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Estoque</th>
+                                <th>Preço</th>
+                                <th>Tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>001</td>
+                                <td>Produto A</td>
+                                <td>120</td>
+                                <td>R$ 45,00</td>
+                                <td>Produto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <!-- CARD — aparece apenas em telas pequenas -->
-                    <div class="d-block d-md-none">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Produto A</h5>
+                <!-- CARD — aparece apenas em telas pequenas -->
+                <div class="d-block d-md-none">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Financeiro A</h5>
 
-                                <p class="mb-1"><strong>Código:</strong> 001</p>
-                                <p class="mb-1"><strong>Estoque:</strong> 120</p>
-                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
-                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+                            <p class="mb-1"><strong>Código:</strong> 001</p>
+                            <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                            <p class="mb-2"><strong>Tipo:</strong> Receber</p>
 
-                            </div>
                         </div>
                     </div>
-
                 </div>
-            
+
+            </div>
+
 
             <!-- FORMULÁRIO DE PRODUTO (inicialmente escondido) -->
             <div id="formFinanceiro" class="card shadow-sm p-4" style="display:none;">
                 <h4 class="mb-3">Cadastro de Produto</h4>
-                <form id="produtoForm">
+                <form id="financeiroForm">
                     <div class="row g-3">
                         <!-- Coluna 1 -->
                         <div class="col-lg-4 col-md-6">
@@ -597,26 +638,26 @@
                             <label class="form-label">Status</label>
                             <select id="StatusProduto" class="form-select">
                                 <option checked value="A">Ativo</option>
-                                <option  value="I">Inativo</option>
+                                <option value="I">Inativo</option>
                             </select>
 
                         </div>
 
                         <!-- Coluna 3 (upload) -->
                         <div class="col-lg-4 col-md-12 d-flex flex-column align-items-stretch">
-                            <label class="form-label">Imagem do produto</label>
-                            </div>
-                            <div class="form-actions gap-2">
-                                <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
-                                <button type="button" class="btn btn-secondary"
-                                    onclick="fecharFormularioFinanceiro()">Cancelar</button>
-                            </div>
-                        </div>
 
+                        </div>
+                        <div class="form-actions gap-2">
+                            <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
+                            <button type="button" class="btn btn-secondary"
+                                onclick="fecharFormularioFinanceiro()">Cancelar</button>
+                        </div>
                     </div>
-                </form>
-         </div>
-   <div id="venda" class="page" style="display:none;">
+
+            </div>
+            </form>
+        </div>
+        <div id="venda" class="page" style="display:none;">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>🛒 Vendas</h3>
                 <div><button class="btn btn-success" onclick="mostrarFormularioVenda()">➕ Adicionar
@@ -635,69 +676,73 @@
 
                     <div class="row g-2">
                         <div class="col-md-3">
-                            <select class="form-select">
-                                <option>Todos Tipos</option>
-                                <option>Produto</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
+                            <label for="">Pesquise por um termo</label>
+                            <input type="text" class="form-control" placeholder="Pesquise por um termo">
+                            <label for="StatusVenda">Status</label>
                             <select class="form-select">
                                 <option>Todos Status</option>
-                                <option>Ativo</option>
-                                <option>Inativo</option>
+                                <option>Orçamento</option>
+                                <option>Pedido</option>
+                                <option>Cancelado</option>
                             </select>
                         </div>
                         <div class="col-md-3">
+                            <label for="">Cadastro inicio</label>
                             <input type="date" class="form-control" placeholder="Cadastro Início">
+                            <label for="">Cadastro Fim</label>
+                            <input type="date" class="form-control" placeholder="Cadastro Fim">
                         </div>
                         <div class="col-md-3">
+                            <label for="">Cancelamento inicio</label>
+                            <input type="date" class="form-control" placeholder="Cadastro Início">
+                            <label for="">Cancelamento Fim</label>
                             <input type="date" class="form-control" placeholder="Cadastro Fim">
                         </div>
                     </div>
                 </div>
 
-                    <!-- TABELA — aparece apenas em md, lg e xl -->
-                    <div class="table-responsive d-none d-md-block" id="TabelaVenda">
-                        <table class="table align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th style="width:40px;"><input type="checkbox"></th>
-                                    <th>Código</th>
-                                    <th>Nome</th>
-                                    <th>Estoque</th>
-                                    <th>Preço</th>
-                                    <th>Tipo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>001</td>
-                                    <td>Produto A</td>
-                                    <td>120</td>
-                                    <td>R$ 45,00</td>
-                                    <td>Produto</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <!-- TABELA — aparece apenas em md, lg e xl -->
+                <div class="table-responsive d-none d-md-block" id="TabelaVenda">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:40px;"><input type="checkbox"></th>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Estoque</th>
+                                <th>Preço</th>
+                                <th>Tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>001</td>
+                                <td>Produto A</td>
+                                <td>120</td>
+                                <td>R$ 45,00</td>
+                                <td>Produto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <!-- CARD — aparece apenas em telas pequenas -->
-                    <div class="d-block d-md-none">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Venda para cliente A</h5>
+                <!-- CARD — aparece apenas em telas pequenas -->
+                <div class="d-block d-md-none">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Venda para cliente A</h5>
 
-                                <p class="mb-1"><strong>Código:</strong> 001</p>
-                                <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
-                                <p class="mb-2"><strong>Tipo:</strong> Produto</p>
+                            <p class="mb-1"><strong>Código:</strong> 001</p>
+                            <p class="mb-1"><strong>Preço:</strong> R$ 45,00</p>
+                            <p class="mb-2"><strong>Tipo:</strong> Produto</p>
 
-                            </div>
                         </div>
                     </div>
-
                 </div>
-            
+
+            </div>
+
 
             <!-- FORMULÁRIO DE VENDAS (inicialmente escondido) -->
             <div id="formVenda" class="card shadow-sm p-4" style="display:none;">
@@ -722,29 +767,29 @@
                         <!-- Coluna 3 (upload) -->
                         <div class="col-lg-4 col-md-12 d-flex flex-column align-items-stretch">
                             <label class="form-label">Imagem do produto</label>
-                            </div>
-                            <div class="form-actions gap-2">
-                                <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
-                                <button type="button" class="btn btn-secondary"
-                                    onclick="fecharFormularioVenda()">Cancelar</button>
-                            </div>
                         </div>
-
+                        <div class="form-actions gap-2">
+                            <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
+                            <button type="button" class="btn btn-secondary"
+                                onclick="fecharFormularioVenda()">Cancelar</button>
+                        </div>
                     </div>
-                </form>
+
             </div>
+            </form>
+        </div>
 
 
-            
-    
-        
+
+
+
 
         <!-- CONFIGURAÇÕES -->
         <div id="config" class="page" style="display:none;">
             <h3>⚙️ Configurações</h3>
             <p>Configurações gerais...</p>
         </div>
-   
+
         <!-- RELATÓRIOS -->
         <div id="relatorios" class="page" style="display:none;">
             <h3>📄 Relatórios</h3>
@@ -752,12 +797,12 @@
         </div>
 
     </div>
-        <!-- VENDAS -->
-        <div id="vendas" class="page" style="display:none;">
-            <h3>🛒 Vendas</h3>
-            <button class="btn btn-success mb-3" onclick="abrirCadastro('Cadastro de Venda')">➕ Nova Venda</button>
-            <p>Listagem de vendas...</p>
-        </div>
+    <!-- VENDAS -->
+    <div id="vendas" class="page" style="display:none;">
+        <h3>🛒 Vendas</h3>
+        <button class="btn btn-success mb-3" onclick="abrirCadastro('Cadastro de Venda')">➕ Nova Venda</button>
+        <p>Listagem de vendas...</p>
+    </div>
 
     </div>
 
@@ -822,7 +867,7 @@
             document.getElementById('formVenda').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    
+
         // ========== Parceiros: mostrar/ocultar formulário ==========
         function mostrarFormularioParceiro() {
             document.getElementById('listaparceiros').style.display = 'none';
@@ -996,3 +1041,67 @@
 </body>
 
 </html>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabela = document.querySelector("#TabelaParceiros table");
+        const ths = tabela.querySelectorAll("thead th");
+        const listaColunas = document.querySelector("#listaColunas");
+        const btnSalvar = document.querySelector("#salvarColunas");
+
+        // Criar checkboxes das colunas
+        ths.forEach((th, index) => {
+            if (index === 0) return; // Ignorar checkbox da primeira coluna
+
+            const colName = th.innerText.trim();
+            const id = "coluna_" + index;
+
+            // Apenas as 4 primeiras colunas selecionadas
+            const checked = index <= 4 ? "checked" : "";
+
+            listaColunas.innerHTML += `
+        <div class="form-check">
+            <input class="form-check-input colunaCheck" type="checkbox" 
+                id="${id}" data-col="${index}" ${checked}>
+            <label class="form-check-label" for="${id}">
+                ${colName}
+            </label>
+        </div>
+    `;
+        });
+
+
+        // Função mostrar/esconder colunas
+        function atualizarColunas() {
+            document.querySelectorAll(".colunaCheck").forEach(chk => {
+                const colIndex = Number(chk.dataset.col);
+
+                // Seleciona todas as células da coluna (th e td)
+                const colunas = tabela.querySelectorAll(
+                    `thead th:nth-child(${colIndex + 1}),
+                 tbody td:nth-child(${colIndex + 1})`
+                );
+
+                colunas.forEach(cell => {
+                    cell.style.display = chk.checked ? "" : "none";
+                });
+            });
+        }
+
+        // Evento de salvar
+        btnSalvar.addEventListener("click", () => {
+            atualizarColunas();
+        });
+
+        // Abrir modal
+        document.querySelector("#configColparceiros").addEventListener("click", () => {
+            const modal = new bootstrap.Modal(document.getElementById("modalConfigColunas"));
+            modal.show();
+        });
+
+        // Aplica imediatamente as colunas padrão ao carregar
+        setTimeout(() => {
+            atualizarColunas();
+        }, 50);
+
+    });
+</script>
