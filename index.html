@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
     <style>
         body {
@@ -160,6 +160,9 @@
                         <button class="btn btn-secondary ">🔍 Filtro</button>
                         <button class="btn btn-primary">⬇ Export</button>
                         <button class="btn btn-danger">🗑 Excluir</button>
+                               <button id="configColProdutos" class="btn btn-primary d-none d-md-block">
+                            Configurar colunas
+                        </button>
                     </div>
 
                     <div class="row g-2">
@@ -167,6 +170,28 @@
                             <label for="PesquisaProduto">Pesquise por um termo</label>
                             <input type="text" class="form-control" id="PesquisaProduto"
                                 placeholder="Pesquise por um termo do seu produto">
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- Modal para configurar colunas dos produtos -->
+                <div class="modal fade" id="modalConfigColunasProdutos" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Selecionar colunas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <!-- Aqui os checkboxes das colunas -->
+                                <div id="listaColunasProdutos"></div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button class="btn btn-primary" id="salvarColunasProdutos">Salvar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,10 +213,42 @@
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>001</td>
+                                <td>Produto B</td>
+                                <td>120</td>
+                                <td>15,00</td>
+                                <td>15/10/25</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>003</td>
+                                <td>Produto A</td>
+                                <td>120</td>
+                                <td>2,00</td>
+                                <td>10/11/25</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>002</td>
+                                <td>Produto A</td>
+                                <td>120</td>
+                                <td>45,00</td>
+                                <td>15/11/26</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>001</td>
+                                <td>CAFE COM LEITE</td>
+                                <td>120</td>
+                                <td>45,00</td>
+                                <td>15/11/25</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>001</td>
                                 <td>Produto A</td>
                                 <td>120</td>
                                 <td>R$ 45,00</td>
-                                <td>Produto</td>
+                                <td>15/12/27</td>
                             </tr>
                         </tbody>
                     </table>
@@ -520,7 +577,29 @@
                         Movimento</button></div>
             </div>
 
-            <!-- LISTA DE PRODUTOS (visível por padrão) -->
+                                  <!-- Modal para configurar colunas dos do fiannceiro -->
+                <div class="modal fade" id="modalConfigColunasFinanceiro" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Selecionar colunas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <!-- Aqui os checkboxes das colunas -->
+                                <div id="listaColunasFinanceiro"></div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button class="btn btn-primary" id="salvarColunasFinanceiro">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- LISTA DE FINANCEIRO (visível por padrão) -->
             <div id="listaFinanceiro">
                 <!-- Filtros / ações (exemplo parecido com sua imagem) -->
                 <div class="card mb-3 p-3">
@@ -528,6 +607,9 @@
                         <button class="btn btn-secondary ">🔍 Filtro</button>
                         <button class="btn btn-primary">⬇ Export</button>
                         <button class="btn btn-danger">🗑 Excluir</button>
+                        <button id="configColFinanceiro" class="btn btn-primary d-none d-md-block">
+                            Configurar colunas
+                        </button>
                     </div>
 
                     <div class="row g-2">
@@ -580,10 +662,13 @@
                             <tr>
                                 <th style="width:40px;"><input type="checkbox"></th>
                                 <th>Código</th>
-                                <th>Nome</th>
-                                <th>Estoque</th>
-                                <th>Preço</th>
+                                <th>Fantasia</th>
+                                <th>Documento</th>
                                 <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Valor</th>
+                                <th>Vencimento</th>
+                                <th>Cadastro</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -594,6 +679,8 @@
                                 <td>120</td>
                                 <td>R$ 45,00</td>
                                 <td>Produto</td>
+                                <td>15,25</td>                                <td>Produto</td>
+                                <td>15/10/2025</td>
                             </tr>
                         </tbody>
                     </table>
@@ -664,6 +751,30 @@
                         Movimento</button></div>
             </div>
 
+
+            
+                                <!-- Modal para configurar colunas dos produtos -->
+                <div class="modal fade" id="modalConfigColunasVenda" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Selecionar colunas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <!-- Aqui os checkboxes das colunas -->
+                                <div id="listaColunasVenda"></div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button class="btn btn-primary" id="salvarColunasVenda">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             <!-- LISTA DE VENDAS (visível por padrão) -->
             <div id="listaVenda">
                 <!-- Filtros / ações (exemplo parecido com sua imagem) -->
@@ -672,6 +783,9 @@
                         <button class="btn btn-secondary ">🔍 Filtro</button>
                         <button class="btn btn-primary">⬇ Export</button>
                         <button class="btn btn-danger">🗑 Excluir</button>
+                               <button id="configColVenda" class="btn btn-primary d-none d-md-block">
+                            Configurar colunas
+                        </button>
                     </div>
 
                     <div class="row g-2">
@@ -708,20 +822,56 @@
                             <tr>
                                 <th style="width:40px;"><input type="checkbox"></th>
                                 <th>Código</th>
-                                <th>Nome</th>
-                                <th>Estoque</th>
-                                <th>Preço</th>
-                                <th>Tipo</th>
+                                <th>Fantasia</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th>Dt. Venda</th>
+                                <th>Usuário</th>
+                                <th>Vlr. Desconto</th>
+                                <th>Cod. cliente</th>
+                                <th>Razão social</th>
+                                <th>Dt. Cancelamento</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="checkbox"></td>
                                 <td>001</td>
-                                <td>Produto A</td>
-                                <td>120</td>
-                                <td>R$ 45,00</td>
-                                <td>Produto</td>
+                                <td>JOAO NETO</td>
+                                <td>120,23</td>
+                                <td>Orçamento</td>
+                                <td>10/10/2025</td>
+                                <td>fabricio</td>
+                                <td>10,36</td>
+                                <td>155</td>
+                                <td>joao neto silva</td>
+                                <td>10/15/2024</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>002</td>
+                                <td>Maria de fatima</td>
+                                <td>120,23</td>
+                                <td>Pedido</td>
+                                <td>01/10/2025</td>
+                                <td>maria</td>
+                                <td>0,36</td>
+                                <td>155</td>
+                                <td>Maria de fatima batista</td>
+                                <td>10/07/2025</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>003</td>
+                                <td>JACKSON SILVA NETO</td>
+                                <td>120,23</td>
+                                <td>Orçamento</td>
+                                <td>10/04/2025</td>
+                                <td>fabricio</td>
+                                <td>1,14</td>
+                                <td>195</td>
+                                <td>JACKSON SILVA</td>
+                                <td>10/15/2024</td>
                             </tr>
                         </tbody>
                     </table>
@@ -994,45 +1144,45 @@
         });
 
         // Inicializa com dashboard visível
-        //  openPage('dashboard');
+        // //  openPage('dashboard');
 
-        // ========== GRÁFICOS ==========
-        new Chart(document.getElementById('grafVendas'), {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-                datasets: [{
-                    label: 'Vendas (R$)',
-                    data: [12000, 8000, 15000, 17000, 14000, 20000],
-                    borderWidth: 3,
-                    borderColor: '#0d6efd',
-                    backgroundColor: 'rgba(13,110,253,0.07)',
-                    fill: true
-                }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
+        // // ========== GRÁFICOS ==========
+        // new Chart(document.getElementById('grafVendas'), {
+        //     type: 'line',
+        //     data: {
+        //         labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+        //         datasets: [{
+        //             label: 'Vendas (R$)',
+        //             data: [12000, 8000, 15000, 17000, 14000, 20000],
+        //             borderWidth: 3,
+        //             borderColor: '#0d6efd',
+        //             backgroundColor: 'rgba(13,110,253,0.07)',
+        //             fill: true
+        //         }]
+        //     },
+        //     options: { responsive: true, maintainAspectRatio: false }
+        // });
 
-        new Chart(document.getElementById('grafEstoque'), {
-            type: 'bar',
-            data: {
-                labels: ['Bebidas', 'Frutas', 'Carnes', 'Padaria'],
-                datasets: [{ label: 'Itens em Estoque', data: [120, 80, 40, 65], backgroundColor: ['#20c997', '#198754', '#0dcaf0', '#ffc107'] }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
+        // new Chart(document.getElementById('grafEstoque'), {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Bebidas', 'Frutas', 'Carnes', 'Padaria'],
+        //         datasets: [{ label: 'Itens em Estoque', data: [120, 80, 40, 65], backgroundColor: ['#20c997', '#198754', '#0dcaf0', '#ffc107'] }]
+        //     },
+        //     options: { responsive: true, maintainAspectRatio: false }
+        // });
 
-        new Chart(document.getElementById('grafFinanceiro'), {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-                datasets: [
-                    { label: 'Receita', data: [20000, 18000, 25000, 23000, 30000, 35000], backgroundColor: '#0d6efd' },
-                    { label: 'Despesas', data: [15000, 12000, 18000, 16000, 20000, 21000], backgroundColor: '#dc3545' }
-                ]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
+        // new Chart(document.getElementById('grafFinanceiro'), {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+        //         datasets: [
+        //             { label: 'Receita', data: [20000, 18000, 25000, 23000, 30000, 35000], backgroundColor: '#0d6efd' },
+        //             { label: 'Despesas', data: [15000, 12000, 18000, 16000, 20000, 21000], backgroundColor: '#dc3545' }
+        //         ]
+        //     },
+        //     options: { responsive: true, maintainAspectRatio: false }
+        // });
     </script>
 
     <!-- Bootstrap JS -->
@@ -1041,6 +1191,7 @@
 </body>
 
 </html>
+<!-- Colunas vendas -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const tabela = document.querySelector("#TabelaParceiros table");
@@ -1105,3 +1256,362 @@
 
     });
 </script>
+
+<!-- Colunas produtos -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabela = document.querySelector("#TabelaProdutos table");
+        const ths = tabela.querySelectorAll("thead th");
+        const listaColunas = document.querySelector("#listaColunasProdutos");
+        const btnSalvar = document.getElementById("salvarColunasProdutos");
+
+        // Criar checkboxes das colunas
+        ths.forEach((th, index) => {
+            if (index === 0) return; // Ignorar checkbox da primeira coluna
+
+            const colName = th.innerText.trim();
+            const id = "coluna_" + index;
+
+            // Apenas as 4 primeiras colunas selecionadas
+            const checked = index <= 4 ? "checked" : "";
+
+            listaColunas.innerHTML += `
+        <div class="form-check">
+            <input class="form-check-input colunaCheckP" type="checkbox" 
+                id="${id}" data-col="${index}" ${checked}>
+            <label class="form-check-label" for="${id}">
+                ${colName}
+            </label>
+        </div>
+    `;
+        });
+
+
+        // Função mostrar/esconder colunas
+        function atualizarColunas() {
+            document.querySelectorAll(".colunaCheckP").forEach(chk => {
+                const colIndex = Number(chk.dataset.col);
+
+                // Seleciona todas as células da coluna (th e td)
+                const colunas = tabela.querySelectorAll(
+                    `thead th:nth-child(${colIndex + 1}),
+                 tbody td:nth-child(${colIndex + 1})`
+                );
+
+                colunas.forEach(cell => {
+                    cell.style.display = chk.checked ? "" : "none";
+                });
+            });
+        }
+
+        // Evento de salvar
+        btnSalvar.addEventListener("click", () => {
+            atualizarColunas();
+        });
+
+        // Abrir modal
+        document.querySelector("#configColProdutos").addEventListener("click", () => {
+            const modal = new bootstrap.Modal(document.getElementById("modalConfigColunasProdutos"));
+            modal.show();
+        });
+
+        // Aplica imediatamente as colunas padrão ao carregar
+        setTimeout(() => {
+            atualizarColunas();
+        }, 50);
+
+    });
+</script>
+<!-- Colunas vendas -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabela = document.querySelector("#TabelaVenda table");
+        const ths = tabela.querySelectorAll("thead th");
+        const listaColunas = document.querySelector("#listaColunasVenda");
+        const btnSalvar = document.getElementById("salvarColunasVenda");
+
+        // Criar checkboxes das colunas
+        ths.forEach((th, index) => {
+            if (index === 0) return; // Ignorar checkbox da primeira coluna
+
+            const colName = th.innerText.trim();
+            const id = "coluna_" + index;
+
+            // Apenas as 4 primeiras colunas selecionadas
+            const checked = index <= 5 ? "checked" : "";
+
+            listaColunas.innerHTML += `
+        <div class="form-check">
+            <input class="form-check-input colunaCheckV" type="checkbox" 
+                id="${id}" data-col="${index}" ${checked}>
+            <label class="form-check-label" for="${id}">
+                ${colName}
+            </label>
+        </div>
+    `;
+        });
+
+
+        // Função mostrar/esconder colunas
+        function atualizarColunas() {
+            document.querySelectorAll(".colunaCheckV").forEach(chk => {
+                const colIndex = Number(chk.dataset.col);
+
+                // Seleciona todas as células da coluna (th e td)
+                const colunas = tabela.querySelectorAll(
+                    `thead th:nth-child(${colIndex + 1}),
+                 tbody td:nth-child(${colIndex + 1})`
+                );
+
+                colunas.forEach(cell => {
+                    cell.style.display = chk.checked ? "" : "none";
+                });
+            });
+        }
+
+        // Evento de salvar
+        btnSalvar.addEventListener("click", () => {
+            atualizarColunas();
+        });
+
+        // Abrir modal
+        document.querySelector("#configColVenda").addEventListener("click", () => {
+            const modal = new bootstrap.Modal(document.getElementById("modalConfigColunasVenda"));
+            modal.show();
+        });
+
+        // Aplica imediatamente as colunas padrão ao carregar
+        setTimeout(() => {
+            atualizarColunas();
+        }, 50);
+
+    });
+</script>
+<!-- Colunas financeiro -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabela = document.querySelector("#TabelaFinanceiro table");
+        const ths = tabela.querySelectorAll("thead th");
+        const listaColunas = document.querySelector("#listaColunasFinanceiro");
+        const btnSalvar = document.getElementById("salvarColunasFinanceiro");
+
+        // Criar checkboxes das colunas
+        ths.forEach((th, index) => {
+            if (index === 0) return; // Ignorar checkbox da primeira coluna
+
+            const colName = th.innerText.trim();
+            const id = "coluna_" + index;
+
+            // Apenas as 4 primeiras colunas selecionadas
+            const checked = index <= 5 ? "checked" : "";
+
+            listaColunas.innerHTML += `
+        <div class="form-check">
+            <input class="form-check-input colunaCheckF" type="checkbox" 
+                id="${id}" data-col="${index}" ${checked}>
+            <label class="form-check-label" for="${id}">
+                ${colName}
+            </label>
+        </div>
+    `;
+        });
+
+
+        // Função mostrar/esconder colunas
+        function atualizarColunas() {
+            document.querySelectorAll(".colunaCheckF").forEach(chk => {
+                const colIndex = Number(chk.dataset.col);
+
+                // Seleciona todas as células da coluna (th e td)
+                const colunas = tabela.querySelectorAll(
+                    `thead th:nth-child(${colIndex + 1}),
+                 tbody td:nth-child(${colIndex + 1})`
+                );
+
+                colunas.forEach(cell => {
+                    cell.style.display = chk.checked ? "" : "none";
+                });
+            });
+        }
+
+        // Evento de salvar
+        btnSalvar.addEventListener("click", () => {
+            atualizarColunas();
+        });
+
+        // Abrir modal
+        document.querySelector("#configColFinanceiro").addEventListener("click", () => {
+            const modal = new bootstrap.Modal(document.getElementById("modalConfigColunasFinanceiro"));
+            modal.show();
+        });
+
+        // Aplica imediatamente as colunas padrão ao carregar
+        setTimeout(() => {
+            atualizarColunas();
+        }, 50);
+
+    });
+</script>
+<!-- Ordenação das colunas e filtros -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Fecha qualquer filtro ao clicar fora
+    document.addEventListener("click", (e) => {
+        document.querySelectorAll(".table-filter-input").forEach(inp => {
+            if (inp.style.display === "block" && !inp.contains(e.target) && !inp._openedByIcon) {
+                inp.style.display = "none";
+            }
+        });
+        // limpar flags de ícone abertas
+        document.querySelectorAll(".table-filter-input").forEach(inp => inp._openedByIcon = false);
+    });
+
+    // Helper: detecta e transforma data dd/mm/yyyy ou dd-mm-yyyy (ou yy)
+    function parseDateDMY(text) {
+        const t = text.trim();
+        const m = t.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+        if (!m) return null;
+        let day = Number(m[1]), month = Number(m[2]), year = Number(m[3]);
+        if (year < 100) {
+            // se for dois dígitos, assumir 2000+ (ajuste se quiser outra regra)
+            year += (year < 50) ? 2000 : 1900;
+        }
+        return Date.UTC(year, month - 1, day); // timestamp em ms UTC
+    }
+
+    // Helper: tenta parsear número com formatos BR e EN
+    function parseNumber(text) {
+        if (!text) return NaN;
+        let s = String(text).trim();
+        // remover símbolos comuns (R$, % etc) mas manter sinais e separadores
+        s = s.replace(/[^\d\-,.eE+\-]/g, "");
+        if (s === "" || s === "-" || s === "+") return NaN;
+
+        // Se contém tanto '.' quanto ',' -> tratar '.' como milhar e ',' como decimal (ex: 1.234,56)
+        if (s.indexOf('.') !== -1 && s.indexOf(',') !== -1) {
+            s = s.replace(/\./g, '').replace(/,/g, '.');
+            const n = parseFloat(s);
+            return isNaN(n) ? NaN : n;
+        }
+
+        // Se contém apenas ',' -> substituir por '.' (ex: 1234,56)
+        if (s.indexOf(',') !== -1 && s.indexOf('.') === -1) {
+            s = s.replace(/,/g, '.');
+            const n = parseFloat(s);
+            return isNaN(n) ? NaN : n;
+        }
+
+        // Apenas '.' ou só dígitos
+        const n = parseFloat(s);
+        return isNaN(n) ? NaN : n;
+    }
+
+    // Função geral para todas as tabelas
+    document.querySelectorAll("table").forEach(table => {
+        const thead = table.querySelector("thead");
+        if (!thead) return;
+        const ths = thead.querySelectorAll("th");
+
+        ths.forEach((th, index) => {
+            // não criar filtro/ícone para a primeira coluna
+            if (index === 0) return;
+
+            // criar ícone de filtro
+            const filterIcon = document.createElement("span");
+            filterIcon.innerHTML = " 🔍";
+            filterIcon.style.cursor = "pointer";
+            filterIcon.style.marginLeft = "6px";
+            filterIcon.style.userSelect = "none";
+
+            // criar input oculto
+            const input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Filtrar...";
+            input.classList.add("form-control", "table-filter-input");
+            input.style.position = "absolute";
+            input.style.zIndex = "999";
+            input.style.display = "none";
+            input.style.width = "140px";
+            input.style.fontSize = "12px";
+            input.style.padding = "2px 6px";
+            input.style.top = "100%";
+            input.style.left = "0";
+            input.style.marginTop = "6px";
+
+            th.style.position = "relative";
+            th.appendChild(filterIcon);
+            th.appendChild(input);
+
+            // evitar que clique no input feche o mesmo
+            input.addEventListener("click", (ev) => {
+                ev.stopPropagation();
+            });
+
+            // mostrar/ocultar ao clicar no ícone
+            filterIcon.addEventListener("click", (ev) => {
+                ev.stopPropagation();
+                // marcar que o input foi aberto a partir do ícone para não fechar no listener global imediatamente
+                input._openedByIcon = true;
+                input.style.display = (input.style.display === "none" ? "block" : "none");
+                if (input.style.display === "block") input.focus();
+            });
+
+            // filtrar ao digitar
+            input.addEventListener("input", () => {
+                const termo = input.value.trim().toLowerCase();
+                const rows = table.querySelectorAll("tbody tr");
+                rows.forEach(row => {
+                    const cell = row.querySelector(`td:nth-child(${index + 1})`);
+                    const texto = (cell?.innerText ?? "").trim().toLowerCase();
+                    row.style.display = texto.includes(termo) ? "" : "none";
+                });
+            });
+
+            // Ordenação por duplo clique (com detecção de tipo: data, número, texto)
+            // usa dataset para guardar direção atual (1 ou -1)
+            if (!th.dataset.sortOrder) th.dataset.sortOrder = "1";
+            th.addEventListener("dblclick", () => {
+                let ordem = Number(th.dataset.sortOrder) || 1;
+                const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+                rows.sort((a, b) => {
+                    const Araw = a.querySelector(`td:nth-child(${index + 1})`)?.innerText.trim() ?? "";
+                    const Braw = b.querySelector(`td:nth-child(${index + 1})`)?.innerText.trim() ?? "";
+
+                    // tentar data (DD/MM/YYYY ou DD-MM-YYYY)
+                    const Ad = parseDateDMY(Araw);
+                    const Bd = parseDateDMY(Braw);
+                    if (Ad !== null && Bd !== null) {
+                        return (Ad - Bd) * ordem;
+                    }
+                    if (Ad !== null) return -1 * ordem; // datas antes de textos
+                    if (Bd !== null) return 1 * ordem;
+
+                    // tentar número
+                    const An = parseNumber(Araw);
+                    const Bn = parseNumber(Braw);
+                    if (!isNaN(An) && !isNaN(Bn)) {
+                        return (An - Bn) * ordem;
+                    }
+                    if (!isNaN(An)) return -1 * ordem;
+                    if (!isNaN(Bn)) return 1 * ordem;
+
+                    // fallback texto (localeCompare para acentuação)
+                    return Araw.localeCompare(Braw, undefined, { numeric: true }) * ordem;
+                });
+
+                // alterna direção para próxima vez
+                th.dataset.sortOrder = String(-ordem);
+
+                // reanexa as linhas ordenadas
+                const tbody = table.querySelector("tbody");
+                rows.forEach(r => tbody.appendChild(r));
+            });
+        });
+    });
+
+});
+</script>
+
+
