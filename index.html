@@ -125,7 +125,7 @@
 <body>
 
     <!-- BOTÃO HAMBÚRGUER -->
-    <button class="btn btn-dark" style="height: 45px;width: 45px;" id="btnMenu" onclick="toggleMenu()"> ☰ </button>
+    <button class="btn btn-dark" style="height: 45px;width: 40px;" id="btnMenu" onclick="toggleMenu()"> ☰ </button>
 
     <!-- MENU LATERAL -->
     <div id="sidebar">
@@ -259,16 +259,31 @@
                             </select>
 
                             <label class="form-label mt-1">Unidade</label>
-                            <input type="text" id="p_unidade" class="form-control" placeholder="Unidade">
-
+                                  <select name="" id="Unidade" class="form-control">
+                                    <option value="UN">Unidade</option>
+                                    <option value="m">Metro (m)</option>
+                                    <option value="cm">Centímetro (cm)</option>
+                                    <option value="mm">Milímetro (mm)</option>
+                                    <option value="kg">Quilograma (kg)</option>
+                                    <option value="g">Grama (g)</option>
+                                    <option value="L">Litro (L)</option>
+                                    <option value="mL">Mililitro (mL)</option>
+                                    <option value="m²">Metro Quadrado (m²)</option>
+                                    <option value="cm²">Centímetro Quadrado (cm²)</option>
+                                    <option value="pc">Peça (pc)</option>
+                                    <option value="cx">Caixa (cx)</option>
+                                    <option value="fd">Fardo (fd)</option>
+                                    <option value="sc">Saco (sc)</option>
+                                    <option value="mc">Maço (mc)</option>
+                                </select>
                             <label class="form-label mt-1">Código de barras 1</label>
-                            <input type="text" id="p_cb1" class="form-control" placeholder="Codigo de barras 1">
+                            <input type="text" id="CodigoBarra1" class="form-control" placeholder="Codigo de barras 1">
 
                             <label class="form-label mt-1">Código de barras 2</label>
-                            <input type="text" id="p_cb2" class="form-control" placeholder="Codigo de barras 2">
+                            <input type="text" id="CodigoBarra2" class="form-control" placeholder="Codigo de barras 2">
 
                             <label class="form-label mt-1">Código de barras 3</label>
-                            <input type="text" id="p_cb3" class="form-control" placeholder="Codigo de barras 3">
+                            <input type="text" id="CodigoBarra3" class="form-control" placeholder="Codigo de barras 3">
                         </div>
 
                         <!-- Coluna 3 (upload) -->
@@ -467,7 +482,7 @@
 
                 </form>
 
-                <div class="form-actions gap-2">
+                <div class="form-actions gap-2 mt-2">
                     <button type="button" class="btn btn-success" onclick="salvarProduto()">Salvar</button>
                     <button type="button" class="btn btn-secondary"
                         onclick="fecharFormularioParceiro()">Cancelar</button>
@@ -568,16 +583,23 @@
                         <!-- Coluna 1 -->
                         <div class="col-lg-4 col-md-6">
                             <label class="form-label">Nome</label>
-                            <input type="text" id="p_nome" class="form-control" placeholder="Nome">
+                            <input type="text" id="NomeProduto" class="form-control" placeholder="Nome">
+                            <label class="form-label">Estoque</label>
+                            <input type="text" id="Estoque" class="form-control" placeholder="Nome">
+                            <label class="form-label">Preço venda</label>
+                            <input type="text" id="PrecoVenda" class="form-control" placeholder="Nome">
+                            <label class="form-label">Preço custo</label>
+                            <input type="text" id="PrecoCusto" class="form-control" placeholder="Nome">
                         </div>
 
                         <!-- Coluna 2 -->
                         <div class="col-lg-4 col-md-6">
                             <label class="form-label">Status</label>
-                            <select id="p_status" class="form-select">
-                                <option selected>Ativo</option>
-                                <option>Inativo</option>
+                            <select id="StatusProduto" class="form-select">
+                                <option checked value="A">Ativo</option>
+                                <option  value="I">Inativo</option>
                             </select>
+
                         </div>
 
                         <!-- Coluna 3 (upload) -->
